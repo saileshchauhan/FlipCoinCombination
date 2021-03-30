@@ -1,5 +1,5 @@
 
-#!/bin/bash -x
+#!/bin/bash
 
 declare -A CoinDict
 
@@ -20,7 +20,7 @@ CoinDict[TTH]=0
 
 for ((count=0; count<60; count++))
 do
-	TossChoice=$((RANDOM % 3 + 1))
+	TossChoice=$((RANDOM%3 + 1))
 	case $TossChoice in
 	1)
 		singleToss=$((RANDOM % 2))
@@ -51,7 +51,7 @@ do
 		esac
 		;;
 	3)
-		tripleToss=$((RANDOM % 8))
+		tripleToss=$((RANDOM%8))
 		case $tripleToss in
 		0)
 			$((CoinDict[HHH]++))
@@ -90,7 +90,7 @@ echo $winCombination
 
 for i in ${!CoinDict[@]}
 do
-	if [ ${CoinDict[$i]} -eq $winCombination ]
+	if [ ${CoinDict[${i}]} -eq $winCombination ]
 	then
 		echo "Winning Combination is "$i
 	fi
